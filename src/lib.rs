@@ -6,7 +6,7 @@ pub struct Config {
 
 pub use self::anyconfig::file as parse;
 
-peg::parser!( pub grammar anyconfig() for str {
+peg::parser!( grammar anyconfig() for str {
 	pub rule file() -> Vec<Config>
 		= comment_or_empty_line()* c:config_part()* { c }
 
